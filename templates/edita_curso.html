@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% block conteudo %}
+<h1 style="text-align: center;">Editar Curso</h1>
+<hr>
+<!-- {% for msg in get_flashed_messages() %}
+    <div class="alert alert-danger">
+        {{msg}}
+    </div>
+{% endfor %} -->
+
+<form action="{{ url_for('edita_curso',id='id') }}" method="POST">
+    <label>Curso</label>
+        <div class="form-group mb-3">
+            <input type="text" class="form-control" name="nome" value="{{curso.nome}}" placeholder="Nome do Curso" required>
+        </div>
+    <label>Descrição</label>
+        <div class="form-group mb-3">
+            <textarea class="form-control" name="descricao" placeholder="Descrição do Curso" required>{{curso.descricao}}</textarea>
+        </div>
+    <label>Carga horária</label>
+        <div class="form-group mb-3">
+            <input type="number" class="form-control" name="carga_horaria" value="{{curso.carga_horaria}}" placeholder="Carga Horária" required>
+        </div>
+    <a type="submit" href="{{url_for('lista_cursos')}}" class="btn btn-light">Voltar</a>
+    <button type="submit" class="btn btn-success">Editar</button>
+</form>
+
+{% endblock conteudo %}
